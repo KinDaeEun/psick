@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-@import url("/psick/css/admin/adminProduct.css");aa
+@import url("/psick/css/admin/adminProduct.css");a
 </style>
 <script type="text/javascript">
 	function chk() {
