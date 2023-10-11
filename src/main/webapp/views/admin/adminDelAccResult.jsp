@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	aaa
+	
 	<c:if test="${result>0 }">
 		<script type="text/javascript">
 			alert("${msg}");
