@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reviewns">
+	<!-- 별점 평균 -->
+	<select id="selectStar" parameterType="integer"
+		resultType="float">
+		select nvl(avg(star),0) from review where pno = #{pno} and
+		r_del= 'n'
+	</select>
+	<!-- 리뷰 갯수 -->
+	<select id="starCount" parameterType="integer"
+		resultType="integer">
+		select count(*) from review where pno =#{pno} and r_del =
+		'n'
+	</select>
+	<!-- 리뷰 목록 -->
+	<select id="selectReview" parameterType="integer"
+		resultType="review">
+		select * from review where pno = #{pno} and r_del = 'n'
+	</select>
+
+	<!-- 리뷰 작성 -->
+	<insert parameterType="review" id="insert">
+		insert into review
+		values(review_seq.nextval, #{r_content}, sysdate, 'n', #{id}, #{pno},
+		#{r_title}, #{star} )
+	</insert>
+
+	<!-- 리뷰 수정 -->
+	<update parameterType="review" id="update">
+		update review set r_content =
+		#{r_content}, r_title = #{r_title},star=#{star} where rno = #{rno}
+	</update>
+
+	<!-- 리뷰 삭제 -->
+	<update parameterType="Map" id="delete">
+		update review set r_del = 'y'
+		where rno = #{rno}
+	</update>
+
+	<select id="getTotal" parameterType="integer"
+		resultType="integer">
+		select count(*) from review where pno=#{pno}
+	</select>
+
+	<select id="getProReview" parameterType="map"
+		resultType="review">
+		select *
+		from
+		(select rowNum rn, a.* from (
+		select * from
+		review where pno = #{pno})a)
+		where rn between
+		#{startRow} and #{endRow}
+	</select>
+
+	<select id="getReview" parameterType="integer"
+		resultType="review">
+		select * from review where rno=#{rno}
+	</select>
+
+	<select resultType="float" parameterType="integer"
+		id="sloganStar">select nvl(avg(star),0) from review where r_del='n' group by pno having avg(star)>3
+		and pno in(select pno from product where p_del='n')
+	</select>
+
+	<update id="changeDel" parameterType="map">
+		update review set
+		r_del=#{r_del} where rno=#{rno}
+	</update>
+
+	<select id="adminSearch" parameterType="map" resultType="review">
+		select *
+		from review where ${searchKey} like
+		'%${searchValue}%' and pno=#{pno}
+	</select>
+
+	<select id="getTotalAll" parameterType="integer"
+		resultType="integer">
+		select count(*) from review where pno=#{pno}
+	</select>
+
+
+
+
+
+</mapper>

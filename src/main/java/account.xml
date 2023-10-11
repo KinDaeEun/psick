@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="accountns">
+	<insert id="insert" parameterType="account">
+		insert into account
+		values(account_seq.nextval, #{id}, #{a_name} , #{a_title},
+		sysdate,
+		#{a_content}, 0, 'n')
+	</insert>
+	<select id="selectAno" resultType="integer">
+		select max(ano) from account
+	</select>
+	<select id="getTotal" resultType="integer">
+		select count(*) from account
+	</select>
+	<select id="list" parameterType="map" resultType="account">
+		select * from
+		(select rowNum rn, a.* from (select * from account where a_del = 'n'
+		order by ano
+		desc)a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+
+	<select id="select" parameterType="integer" resultType="account">
+		select *
+		from account where ano=#{ano}
+	</select>
+
+	<update id="update" parameterType="account">
+		update account set
+		a_title =
+		#{a_title},
+		a_name = #{a_name},
+		a_content = #{a_content}
+		where ano =
+		#{ano}
+	</update>
+
+	<!-- 게시글 조회수 증가 -->
+	<update id="readcountUpdate" parameterType="integer">
+		update account set
+		a_cnt = a_cnt + 1 where ano = #{ano}
+	</update>
+
+	<update id="delete" parameterType="integer">
+		update account set a_del = 'y'
+		where ano = #{ano}
+	</update>
+
+	<!-- 검색 -->
+	<select resultType="account" id="search" parameterType="string">
+		select *
+		from account where a_title like '%'||#{search}||'%'
+	</select>
+	
+	<update id="changeDel" parameterType="map">
+		update account set
+		a_del=#{a_del} where ano=#{ano}
+	</update>
+	
+	<select id="selectAll" parameterType="map" resultType="account">
+		select * from
+		(select rowNum rn, a.* from (select * from account)a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<select id="getTotalAll" resultType="integer">
+		select count(*) from account
+	</select>
+	
+	<update id="adminUpdate" parameterType="account">
+		update account set a_title = #{a_title}, a_name=#{a_name},
+		 a_content=#{a_content}, a_cnt=#{a_cnt} where ano = #{ano}
+	</update>
+	
+	<select id="adminSearch" parameterType="map" resultType="account">
+		select * from account where ${searchKey} like
+		'%${searchValue}%'
+	</select>
+</mapper>

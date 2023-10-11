@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties" />
+	<typeAliases>
+		<typeAlias alias="member" type="model.Member" />
+		<typeAlias alias="product" type="model.Product" />
+		<typeAlias alias="love" type="model.Love" />
+		<typeAlias alias="cart" type="model.Cart" />
+		<typeAlias alias="review" type="model.Review" />
+		<typeAlias alias="account" type="model.Account" />
+		<typeAlias alias="buy" type="model.Buy" />
+		<typeAlias alias="buyList" type="model.BuyList" />
+		<typeAlias alias="event" type="model.Event" />
+		<typeAlias alias="eventList" type="model.EventList" />
+		<typeAlias type="model.Reply" alias="reply" />
+
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="member.xml" />
+		<mapper resource="product.xml" />
+		<mapper resource="love.xml" />
+		<mapper resource="cart.xml" />
+		<mapper resource="review.xml" />
+		<mapper resource="account.xml" />
+		<mapper resource="buy.xml" />
+		<mapper resource="buyList.xml" />
+		<mapper resource="event.xml" />
+		<mapper resource="eventList.xml" />
+		<mapper resource="reply.xml" />
+
+	</mappers>
+</configuration>

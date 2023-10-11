@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buylistns">
+
+	<insert id="insertbuyList" parameterType="buyList">
+	insert into buylist values(#{pno}, #{bno}, #{b_count}) 
+	</insert>
+
+	<select id="selectBcount" parameterType="buyList"
+		resultType="integer">
+		select b_count from buylist where bno=#{bno}
+	</select>
+
+	<select resultType="product" id="selectbuyall"
+		parameterType="string">
+		select p.*, bl.b_count buy_count from product p, buylist bl, buy b
+		where p.pno = bl.pno and bl.bno = b.bno and b.id = #{id}
+	</select>
+
+</mapper>

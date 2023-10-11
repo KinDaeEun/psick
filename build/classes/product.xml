@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productns">
+	<select id="disList" resultType="product">
+		select * from product where
+		discount >= 10 and p_del='n' and p_count>0 order by discount desc
+	</select>
+
+	<select id="freshList" resultType="product">
+		select * from product where
+		p_date > to_date('2023-05-01','YYYY-MM-dd') and p_del='n' and
+		p_count>0
+		order by p_date desc
+	</select>
+
+	<select id="bestList" resultType="product">
+		select * from product where pno
+		in (select pno from review group by pno having avg(star)>=2) and
+		p_del='n' and p_count>0
+	</select>
+
+	<select id="getTotal" parameterType="map" resultType="integer">
+		select
+		count(*) from product where p_del='n' and p_count>0 and ${condition}
+	</select>
+
+
+	<select id="discount" parameterType="map" resultType="product">
+		select *
+		from
+		(select rowNum rn, a.* from (
+		select * from product where
+		discount>0 and p_del='n' and p_count>0 order by pno)a)
+		where rn between
+		#{startRow} and #{endRow}
+	</select>
+
+	<select id="best" parameterType="map" resultType="product">
+		select * from
+		(select rowNum rn, a.* from (
+		select * from product where pno in
+		(select pno from review group by pno having avg(star)>=2) and
+		p_del='n' and p_count>0)a)
+		where rn
+		between #{startRow} and #{endRow}
+	</select>
+
+	<select id="fresh" parameterType="map" resultType="product">
+		select * from
+		(select rowNum rn, a.* from (
+		select * from product where p_date >
+		to_date('2020-05-01','YYYY-MM-dd') and p_del='n' and p_count>0 order
+		by p_date desc)a)
+		where rn
+		between #{startRow} and #{endRow}
+	</select>
+
+	<select id="categoriesBest" parameterType="map"
+		resultType="product">
+		select * from
+		(select rowNum rn, a.* from (
+		select
+		p.pno,pname,p_price,p_country,p_detail_img,p_detail_content,discount,p_kind,p_del,p_date,p_count
+		from product p , review r where p.pno = r.pno and p_del='n' and
+		p_count>0 group by
+		p.pno,pname,p_price,p_country,p_detail_img,p_detail_content,discount,p_kind,p_del,p_date,p_count
+		having p_kind=#{kind} order by ${order} )a)
+		where rn between
+		#{startRow} and #{endRow}
+	</select>
+	<select id="categories" parameterType="map" resultType="product">
+		select *
+		from
+		(select rowNum rn, a.* from (
+		select * from product where
+		p_kind=#{kind} and p_del='n' and p_count>0 order by ${order})a)
+		where
+		rn between #{startRow} and
+		#{endRow}
+	</select>
+	<select resultType="product" id="search" parameterType="string">
+		select *
+		from product where p_del='n' and p_count>0 and pname like
+		'%'||#{search}||'%'
+	</select>
+
+	<select resultType="product" id="select" parameterType="integer">
+		select *
+		from product where pno= #{pno}
+	</select>
+
+	<select resultType="product" id="cartlist" parameterType="map">
+		select
+		* from product where pno in （select pno from cart where id =#{id})
+	</select>
+
+	<delete id="delete">
+		delete from cart where pno=#{pno}
+	</delete>
+
+	<delete id="deleteAll">
+		delete from cart where id = #{id}
+	</delete>
+
+
+	<select id="selectAll" parameterType="map" resultType="product">
+		select *
+		from
+		(select rowNum rn, a.* from (
+		select * from product order by p_date
+		desc)a)
+		where rn
+		between #{startRow} and #{endRow}
+	</select>
+
+	<select id="getTotalAll" resultType="integer">
+		select
+		count(*) from product
+	</select>
+
+	<select id="adminSearch" parameterType="map"
+		resultType="product">
+		select * from product where ${searchKey} like
+		'%${searchValue}%'
+	</select>
+
+	<insert id="insertPro" parameterType="product">
+		insert into product
+		values(product_seq.nextval,#{pname},#{p_price},#{p_country},
+		#{p_detail_img},#{p_detail_content},#{discount},#{p_kind},'n',sysdate,#{p_count})
+	</insert>
+
+	<update id="updatePro" parameterType="product">
+		update product set pname=#{pname}, p_price=#{p_price},
+		p_country=#{p_country},
+		<if test="p_detail_img != null and p_detail_img != ''">
+			p_detail_img=#{p_detail_img},
+		</if>
+		p_detail_content=#{p_detail_content}, discount=#{discount},
+		p_kind=#{p_kind}, p_count=#{p_count} where pno=#{pno}
+	</update>
+
+	<update id="changeDel" parameterType="map">
+		update product set
+		p_del=#{p_del} where pno=#{pno}
+	</update>
+
+	<select resultType="product" id="longProduct"
+		parameterType="string">select * from product where pno in(select pno from love
+		where id=#{id})
+	</select>
+
+	<select resultType="product" id="selectbuyPd"
+		parameterType="integer">
+		select p.*, bl.b_count buy_count from product p, buylist bl
+		where p.pno = bl.pno  and bl.bno = #{bno}
+	</select>
+	
+
+
+	<select resultType="product" id="sloganPd"
+		parameterType="integer">select * from product where pno in( select pno from
+		review where r_del='n' group by pno having avg(star)>3 and pno in
+		(select pno from
+		product where p_del='n') )
+	</select>
+
+
+	<select id="eventlist" parameterType="integer"
+		resultType="product">
+		select * from product where p_del='n' and pno in
+		(select pno
+		from eventlist
+		where eno=#{eno})
+	</select>
+
+	<delete id="delPro" parameterType="map">
+		delete from eventlist where
+		pno = #{pno} and eno = #{eno}
+	</delete>
+
+	<select id="eventPro" parameterType="integer"
+		resultType="product">
+
+		select * from product where pno
+		in(select pno from eventlist where
+		eno=#{eno}) order by pno
+	</select>
+
+	<select id="getNePro" parameterType="map" resultType="product">
+		select *
+		from product where p_del='n' and pno not
+		in(select pno from eventlist
+		where eno=#{eno}) order by pno
+	</select>
+
+	<insert id="insertEventList" parameterType="map">
+		insert into eventlist
+		values(#{eno},#{i})
+	</insert>
+
+  
+
+
+
+
+</mapper>

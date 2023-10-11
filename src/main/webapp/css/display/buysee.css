@@ -1,0 +1,74 @@
+@charset "UTF-8";
+.order_completed_wrap {
+	width: 860px;
+	margin: 0 auto;
+}
+.order_completed img {
+	margin-bottom: 40px;
+}
+.customer_name,
+.customer_name span {
+	font-size: 32px;
+	line-height: 40px;
+	margin-bottom: 4px;
+	font-weight: 700;
+}
+
+.order_completed {
+	text-align: center;
+	padding-top: 150px;
+	height: 60vh;
+}
+
+.guide_message {
+	font-size: 32px;
+	line-height: 40px;
+}
+
+.comple_message_txt {
+	font-size: 25px;
+	line-height: 40px;
+}
+
+.comple_message_txt span {
+	color: #669933;
+	font-size: 25px;
+	line-height: 40px;
+}
+
+/*버튼*/
+.btnGray40 {
+	color: #222222;
+	border: 1px solid #ccc;
+	min-width: 65px;
+	height: 40px;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 14px;
+	background-color: white;
+	margin-right: 10px;
+}
+
+.btn_send_st01,
+.btnGray40 {
+	width: 140px;
+}
+
+button.btn_send_st01 {
+	background: #669933;
+	border: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	height: 39px;
+	padding: 0 31px;
+	min-width: 80px;
+	text-align: center;
+	border-radius: 5px;
+	white-space: nowrap;
+}
+
+.my_bott_btn02 {
+	margin-top: 30px;
+}

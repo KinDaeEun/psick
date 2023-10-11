@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartns">
+	<insert id="insert" parameterType="cart">
+		insert into cart values(
+		#{pno}, #{id},'n')
+	</insert>
+	<!-- 마이페이지 - 장바구니 갯수 -->
+	<select id="getTotalMy" parameterType="string"
+		resultType="integer">
+		select count(*) from cart where id = #{id}
+	</select>
+	<select parameterType="map" id="select1" resultType="cart">select *
+		from cart where pno = #{pno} and id = #{id} </select>
+</mapper>
+

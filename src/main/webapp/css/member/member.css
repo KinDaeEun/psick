@@ -1,0 +1,487 @@
+@charset "UTF-8";
+
+/*all*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+}
+
+.btn_style {
+	width: 100%;
+	height: 50px;
+	background-color: #669933;
+	color: #fff;
+	font-size: 20px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+/*all*/
+
+/*loginform*/
+.login-form {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 51vh;
+}
+
+.login-form h1 {
+	font-size: 32px;
+	color: #000;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.int-area {
+	width: 400px;
+	position: relative;
+}
+
+.int-area:first-child {
+	margin-top: 0;
+}
+
+.int-area input {
+	width: 100%;
+	padding: 20px 10px 10px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #999;
+	font-size: 18px;
+	color: #999;
+	outline: none;
+}
+
+.int-area label {
+	position: absolute;
+	left: 10px;
+	top: 15px;
+	color: #999;
+	transition: all.35s ease;
+}
+
+.int-area label.warning {
+	color: red !important;
+	animation: warning .3s ease;
+	animation-iteration-count: 3;
+}
+
+@keyframes warning {
+	0% {
+		transform: translateX(-8px);
+	}
+
+	20% {
+		transform: translateX(8px);
+	}
+
+	50% {
+		transform: translateX(-8px);
+	}
+
+	75% {
+		transform: translateX(-8px);
+	}
+}
+
+.int-area input:focus+label,
+.int-area input:valid+label {
+	top: -2px;
+	font-size: 13px;
+	color: #669933;
+}
+
+.btn-area {
+	margin-top: 30px;
+}
+
+.btn-area button {
+	width: 100%;
+	height: 50px;
+	background-color: #669933;
+	color: #fff;
+	font-size: 20px;
+	border: none;
+	border-radius: 25px;
+	cursor: pointer;
+}
+
+.caption {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.caption a {
+	font-size: 15px;
+	color: #999;
+	text-decoration: none;
+}
+
+.caption a:first-child {
+	margin-right: 5px;
+}
+
+/*loginform*/
+
+/*joinform*/
+.join-wrap {
+	width: 680px;
+	margin: auto;
+}
+
+.join-title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.join-title h1 {
+	font-size: 22px;
+	font-weight: 700;
+	margin: 0;
+}
+
+h2 {
+	font-size: 16px;
+	font-weight: 500;
+	margin-top: 20px;
+	margin-bottom: 5px;
+
+}
+
+input[id="name"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+}
+
+.id-flex {
+	display: flex;
+}
+
+.id-flex>input[id="id"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-right: 5px;
+}
+
+.pass-wrap>input[id*="password"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+
+
+input[id="addr"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+input[id="addr_detail"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+input[id="mal"]+label {
+	margin-right: 10px;
+}
+
+input[id="tel"] {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.id_btn {
+	color: #222222;
+	border: 1px solid #ccc;
+	min-width: 100px;
+	height: 40px;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 14px;
+	line-height: 14px;
+	background-color: white;
+}
+
+.id_btn:hover {
+	border: 1px solid #669933;
+}
+
+.sm_btn {
+	background: #669933;
+	border: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	height: 39px;
+	padding: 0 31px;
+	text-align: center;
+	border-radius: 5px;
+	white-space: nowrap;
+	margin-top: 30px;
+}
+.sm_btn:first-child {
+	margin-right:10px;
+}
+
+input::placeholder {
+	font-size: 13px;
+}
+
+.pd {
+	margin-bottom: 24px;
+}
+
+.column_box .column {
+	display: inline-block;
+	width: calc(50% - 10px);
+	margin-right: 10px;
+	margin-top: 20px;
+}
+
+textarea {
+	width: 100%;
+	height: 6.25em;
+	resize: none;
+	border: 1px solid #669933;
+	padding: 9px 10px 9px;
+	border-radius: 5px;
+}
+
+.file_label {
+	display: inline-block;
+	width: 100%;
+	line-height: 43px;
+	border: none;
+	border: 1px solid #ccc;
+	outline: 0;
+	font-size: 15px;
+	text-align: center;
+	color: #669933;
+	margin-bottom: 16px;
+	cursor: pointer;
+	padding: 10px 12px;
+	max-height: 65px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	border-radius: 5px;
+	transition: all .35s;
+}
+
+.file_label:hover {
+	background: #669933;
+	color: #fff;
+	font-weight: 500;
+}
+
+input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+/*joinform*/
+
+/*mypageForm*/
+.my_top_class {
+	position: relative;
+}
+
+.nema-class {
+	font-size: 24px;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	line-height: 120%;
+	position: relative;
+	margin-bottom: 24px;
+	width: 920px;
+}
+
+.nema-class span {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: #A2A2A2;
+	line-height: 120%;
+	margin-left: 10px;
+}
+
+.btn_info_write {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	background-color: transparent;
+	font-size: 14px;
+	line-height: 17px;
+	color: #A2A2A2;
+	position: absolute;
+	right: 6px;
+	top: 0;
+	text-decoration: none;
+}
+
+.my_benefit_info {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 72px;
+	border: 1px solid #EDEDED;
+	border-radius: 8px;
+	margin-bottom: 24px;
+	text-decoration: none;
+}
+
+.my_benefit_info .info-title {
+	font-size: 14px;
+	font-weight: 500;
+	color: #A2A2A2;
+}
+
+.my_benefit_info a {
+	flex-basis: 50%;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+	justify-content: center;
+	border-right: 1px solid #EDEDED;
+	text-decoration: none;
+	font-size: 15px;
+}
+
+
+.mypageForm-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}
+
+.section {
+	width: 100%;
+	max-width: 920px;
+	margin-top: 100px;
+}
+
+#del-btn {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	font-size: 14px;
+	color: #A2A2A2;
+	line-height: 120%;
+	margin-left: 10px;
+	border: none;
+	padding: 10px 20px;
+	position: absolute;
+	background-color: #fff;
+	right: 0;
+}
+
+.id_see {
+	margin-left: 10px;
+}
+
+/*mypageForm*/
+.mb {
+	margin-bottom: 20px;
+}
+
+.idc {
+	height: 40px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background: #fff;
+	font-size: 14px;
+	padding: 9px 10px 9px;
+	color: #222;
+	text-align: left;
+	margin-bottom: 5px;
+
+}

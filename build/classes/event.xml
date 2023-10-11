@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="eventns">
+	<select id="event" resultType="event">
+		select * from
+		(select rowNum rn,
+		a.* from (
+		select * from event where e_del='n')a)
+		where rn between #{startRow} and
+		#{endRow}
+	</select>
+
+	<select id="selectEvent" resultType="event"
+		parameterType="integer">
+		select ename from event where eno=#{eno}
+	</select>
+
+	<select id="getTotalAll" resultType="integer">
+		select count(*) from event
+	</select>
+	<select id="selectAll" parameterType="map" resultType="event">
+		select * from event 
+	</select>
+	<update id="changeDel" parameterType="map">
+		update event set
+		e_del=#{e_del} where eno=#{eno}
+	</update>
+	
+	<select id="getEvent" parameterType="integer" resultType="event">
+		select * from event where eno = #{eno}
+	</select>
+	
+	<update id="updateEvent" parameterType="event">
+		update event set ename=#{ename}
+		<if test="e_img != null and e_img !=''">
+			,e_img=#{e_img}
+		</if>
+		  where eno=#{eno}
+	</update>
+	
+	<select id="adminSearch" parameterType="map"
+		resultType="event">
+		select * from event where ${searchKey} like
+		'%${searchValue}%'
+	</select>
+	
+	<insert id="insertEvent" parameterType="event">
+		insert into event values(event_seq.nextval,#{ename},#{e_img},#{e_del})
+	</insert>
+
+</mapper>

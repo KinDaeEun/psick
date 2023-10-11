@@ -1,0 +1,545 @@
+
+/*all*/
+a, a:hover {
+    text-decoration: none;
+    color: #222;
+    outline: none;
+}
+/*all*/
+
+
+.buylist-wrap {
+	width: 920px;
+	margin:100px auto;
+	
+}
+
+/* 주문내역 */
+
+.title02 {
+    color: #264427;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+div.my_order_sec .myDelivery {
+    border: 0;
+    margin: 0;
+}
+
+.myPageContents .myDelivery .my_order_bor .wrapper {
+    border: 0;
+    margin-top: 0;
+}
+
+.myPageContents .myDelivery .my_order_bor {
+    border: 1px solid #ccc;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.myPageContents .more {
+    margin-right: 7px;
+    margin-bottom: -6px;
+}
+
+.myPageContents .registButton .btn_send_st01 {
+    padding: 0 20px;
+}
+
+.myDate {
+    background: #F5F5F5;
+    border-top: 1px solid #ccc;
+    padding: 23px 64px;
+}
+
+.myDate_line {
+    clear: both;
+    overflow: hidden;
+    display: flex;
+}
+
+.myDate_line+.myDate_line {
+    margin-top: 20px;
+}
+.myDate_line h3 {
+    color: #222;
+    font-size: 14px;
+    padding-top: 6px;
+    width: 230px;
+    text-align: center;
+    width: 350px;
+}
+
+.btn_date_st01 {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #666;
+    height: 36px;
+    padding: 0 15px;
+    border-radius: 5px;
+}
+
+.wid60 {
+    min-width: 60px;
+}
+
+.wid80 {
+    min-width: 80px;
+}
+
+.btn_date_st01.on {
+    background: #fff;
+    border: 1px solid #669933;
+    color: #669933;
+    font-weight: 500;
+}
+
+.myDate_line button+button {
+    margin-left: 2px;
+}
+
+.inp_date {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.inp_date>span {
+    padding: 0 10px 0 7px;
+}
+
+.inp_dateBox {
+    display: inline-block;
+    position: relative;
+    width: 160px;
+}
+
+.inp_dateBox input {
+    border: 1px solid #ccc;
+    font-family: 'Roboto';
+    font-size: 14px;
+    height: 36px;
+    padding: 8px 32px 8px 12px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.inp_dateBox input::-webkit-input-placeholder {
+    color: #ccc;
+    text-align: left;
+}
+
+.inp_dateBox input::-moz-placeholder {
+    color: #ccc;
+    text-align: left;
+}
+
+.inp_dateBox input:-ms-input-placeholder {
+    color: #ccc;
+    text-align: left;
+}
+
+.inp_dateBox input::-ms-input-placeholder {
+    color: #ccc;
+    text-align: left;
+}
+.inp_dateBox input::placeholder {
+    color: #ccc;
+    text-align: left;
+}
+.inp_dateBox input:focus {
+    border: 1px solid #669933
+}
+.inp_dateBox button {
+    background: url("/psick/images/icon_img/icon_date.svg") no-repeat;
+    border: 0;
+    display: block;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 20px;
+}
+.month_line {
+    display: inline-block;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.month_line button+button {
+    margin-left: 2px;
+}
+
+.date_send {
+    margin: 30px 0 40px;
+    text-align: center;
+}
+
+button.btn_send_st01 {
+    background: #669933;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 39px;
+    padding: 0 31px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.order_prod_con04 .btn_send_st01 {
+    padding: 0 20px;
+}
+
+.order_num {
+    margin-bottom: 12px;
+    font-family: 'Roboto';
+    line-height: 19px;
+    color: #3895FF;
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+}
+.order_num .to-from {
+     display: flex;
+    flex-direction: column;
+}
+
+.order_num span {
+    color: #222;
+    display: inline-block;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    padding-right: 30px;
+    vertical-align: -1px;
+}
+
+.order_num .orderCode {
+    font-weight: 400;
+    color: #666;
+    display: inline-block;
+    font-family: 'Roboto';
+    font-size: 14px;
+    line-height: 19px;
+    padding-right: 16px;
+    vertical-align: middle;
+}
+
+.my_order_sec02+.my_order_sec02 {
+    margin-top: 60px;
+}
+form .my_order_sec02{
+   margin-top: 60px;
+}
+.order_check_cont {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.order_check_cont::after {
+    content: "";
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+
+.order_check_list {
+    display: table;
+    padding: 17px 20px;
+    width: 100%;
+}
+
+.order_check_list+.order_check_list {
+    border-top: 1px solid #EDEDED;
+}
+
+.order_check_list>div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.prod_thum_img {
+    background: #EDEDED;
+    height: 66px;
+    overflow: hidden;
+    border-radius: 3px;
+    width: 48px;
+    margin: 0 auto;
+}
+
+.prod_thum_img img {
+    max-width: 100%;
+}
+
+.order_prod_con02 p {
+    color: #222;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.last_td {
+    text-align: center;
+    padding-right: 80px;
+}
+
+.delivery_td {
+	text-align: center;
+    padding-right: 110px;
+}
+
+.last_td a {
+    vertical-align: middle;
+}
+
+.order_check_cont table {
+    height: 100%;
+}
+
+td.tb_pa {
+    padding: 0 !important;
+    width: 27px;
+    border-right: 1px solid #EDEDED;
+    position: relative;
+    top: 0;
+    height: 100%;
+}
+
+td.tb_pa div {
+    height: 100%;
+}
+
+.tb_pa div:before {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 1px;
+}
+
+.tb_pa div:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: -1px;
+    bottom: 0px;
+    top: auto;
+    width: 1px;
+}
+
+.btn_my_cart {
+    background: url("../images/sub/icon_my_cart.svg") 0 0 no-repeat;
+    color: #999;
+    background-size: 19px auto;
+    font-size: 12px;
+    padding-left: 25px;
+    display: inline-block;
+}
+
+.btn_my_cart:hover {
+    color: #669933;
+    background: url("../images/sub/icon_my_cart_over.svg") no-repeat;
+    background-size: 19px auto;
+}
+
+a.btn_order_cancle {
+    border: 1px solid #ccc;
+    color: #999;
+    display: inline-block;
+    font-size: 12px;
+    height: 22px;
+    margin-top: 8px;
+    padding: 0 13px;
+    border-radius: 3px;
+}
+
+.pl7 {
+    margin-left: 7px;
+}
+
+.last_td>span {
+    color: #222;
+    font-size: 12px;
+    padding-top: 4px;
+    display: block;
+}
+
+.order_check_cont table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.order_check_cont td {
+    padding: 18px 19px;
+}
+
+.order_check_cont table tr+tr {
+    border-top: 1px solid #EDEDED;
+}
+
+.order_check_cont table .amount {
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.order_check_cont table .amount span {
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.order_check_cont table .amount .num {
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 15px;
+}
+
+td.order_prod_con03 {
+    text-align: right;
+    padding-right: 0;
+}
+
+.order_prod_con03>div {
+    padding: 10px 25px;
+}
+
+td.order_prod_con04 {
+    border-bottom: 0;
+}
+
+.couponDetailPopup table {
+    width: 70%;
+    margin:0 auto 30px;
+}
+
+.couponDetailPopup table td {
+    padding: 5px 12px;
+    text-align: left;
+    color: #222;
+    vertical-align: top;
+}
+
+.couponDetailPopup table .header {
+    font-weight: 500;
+    color: #222;
+}
+
+.couponDetailPopup .textGreen {
+    color: #669933;
+}
+
+.couponDetailPopup .barcodeTd {
+    padding: 20px 12px;
+}
+
+.pa_lef0_rit20 {
+    padding: 0 20px 0 0;
+}
+
+.useMyInfoConsentPopup .topNoticeTextGroup {
+    padding: 17px 30px;
+    background-color: #F9F9E7;
+    border: 1px solid #CCCCCC;
+    line-height: 24px;
+    letter-spacing: -1.1px;
+    border-radius: 5px;
+}
+
+.useMyInfoConsentPopup .content {
+    overflow-y: auto;
+}
+
+.useMyInfoConsentPopup .textGroup {
+    overflow-y: scroll;
+    padding-right: 10px;
+    max-height: 40vh;
+}
+
+.useMyInfoConsentPopup .textGroup .text {
+    margin-top: 12px;
+    line-height: 24px;
+    letter-spacing: -1px;
+}
+
+.useMyInfoConsentPopup .textTable {
+    margin-top: 12px;
+}
+
+.useMyInfoConsentPopup .textTable th,
+.useMyInfoConsentPopup .textTable td {
+    padding: 13px 20px;
+    line-height: 24px;
+    letter-spacing: -1px;
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+
+.useMyInfoConsentPopup .textTable td {
+    vertical-align: top;
+}
+
+.useMyInfoConsentPopup .textTable td:last-child {
+    border-right: none;
+}
+
+.useMyInfoConsentPopup .textTable th {
+    font-weight: 500;
+    background-color: #F6F6F6;
+    border-top: 1px solid #CCCCCC;
+    text-align: left;
+}
+
+.useMyInfoConsentPopup .noticeText {
+    font-size: 16px;
+    border-top: 1px solid #EDEDED;
+    padding: 20px 110px 15px;
+    margin-top: 30px;
+    text-align: center;
+    word-break: keep-all;
+}
+
+/*조회*/
+.myDate_line h3 {
+    color: #222;
+    float: left;
+    font-size: 14px;
+    padding-top: 6px;
+}
+/*조회*/
+
+/*버튼*/
+.order_prod_con02 p {
+    color: #222;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+a.btn_order_cancle {
+    border: 1px solid #ccc;
+    color: #999;
+    display: inline-block;
+    font-size: 12px;
+    height: 22px;
+    margin-top: 8px;
+    padding: 0 13px;
+    border-radius: 3px;
+}
+.my_tooltip span {
+    color: #669933;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 5px;
+}

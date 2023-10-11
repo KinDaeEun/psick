@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="replyns">
+	<insert id="insert" parameterType="reply">
+		<selectKey keyProperty="re_no" order="BEFORE"
+			resultType="integer">
+			select nvl(max(re_no), 0) + 1 re_no from reply
+		</selectKey>
+		insert into reply
+		values(#{re_no},#{id},#{ano},
+		#{ref_content},sysdate,#{ref},#{ref_level},#{ref_step},
+		0,'n')
+	</insert>
+	<update id="update_Ref">
+		update reply set ref_step = ref_step + 1
+		where ref =
+		#{ref} and ref_step > #{ref_step}
+	</update>
+	<select id="selectRe_no" parameterType="integer"
+		resultType="integer">
+		select nvl(max(re_no), 0) + 1 re_no from reply
+	</select>
+	<select id="list" parameterType="map" resultType="reply">
+		select * from
+		(select rowNum rn, a.* from (select * from reply where ano=#{ano} and
+		ref_del='n'
+		order by ref desc, ref_step)a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="getTotal" parameterType="integer"
+		resultType="integer">
+		select count(*) from reply where ano=#{ano}
+	</select>
+
+	<!-- 댓글 수정 -->
+	<update id="update" parameterType="reply">
+		update reply set ref_content =
+		#{ref_content} where re_no = #{re_no}
+	</update>
+
+	<select id="ref_select" parameterType="integer"
+		resultType="reply">
+		select * from reply where re_no=#{re_no}
+	</select>
+	<select id="selectre_no" resultType="integer">
+		select max(ano) from reply
+	</select>
+	<!-- 댓글 삭제 -->
+	<update id="delete" parameterType="integer">
+		update reply set ref_del = 'y'
+		where re_no = #{re_no}
+	</update>
+
+	<select id="getTotalAll" parameterType="integer"
+		resultType="integer">
+		select count(*) from reply where ano=#{ano}
+	</select>
+
+	<select id="getAccReply" parameterType="map" resultType="reply">
+		select * from
+		(select rowNum rn, a.* from (select * from reply where ano = #{ano})a)
+		where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<update id="changeDel" parameterType="map">
+		update reply set
+		ref_del=#{ref_del} where re_no=#{re_no}
+	</update>
+	
+	<select id="getReply" parameterType="integer" resultType="reply">
+		select * from reply where re_no = #{re_no}
+	</select>
+	
+	<select id="adminSearch" parameterType="map"
+		resultType="reply">
+		select * from reply where ${searchKey} like
+		'%${searchValue}%' and ano=#{ano}
+	</select>
+
+</mapper>

@@ -1,0 +1,349 @@
+@charset "UTF-8";
+
+.sub_cont {
+    min-height: 300px;
+}
+
+.sub_tit {
+    line-height: 47px;
+    color: #264427;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contents {
+    margin: auto;
+    width: 1200px;
+    padding: 40px 20px 140px 20px;
+}
+
+.cart_cont {
+    height: 100%;
+    min-height: 440px;
+}
+
+.lef_cart {
+	height: 100%;
+	width: 860px;
+}
+
+.order_wh_top {
+    position: relative;
+}
+
+.sectionTitle {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.articleWrapper1 {
+	border: 1px solid #CCC;
+    border-radius: 5px;
+    width: 1200px;
+}
+
+.myOrderWrapper .articleWrapper1 .formTable {
+    width: 100%;
+}
+
+
+.myOrderWrapper .articleWrapper1 .formTable tr {
+    border-bottom: 1px solid #EDEDED;
+}
+
+.myOrderWrapper .articleWrapper1 .formTable {
+    vertical-align: top;
+}
+
+.myOrderWrapper .articleWrapper1 .formTable td {
+    padding: 23px 20px;
+    line-height: 21px;
+}
+/* 왼쪽 위에 점 */
+.formHeaderTextDot14 {
+    position: relative;
+    width: 100%;
+    padding-left: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.formHeaderTextDot14:before {
+    content: "";
+    display: block;
+    background-color: #222;
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+}
+
+.seperatorLineGray1 {
+    display: inline-block;
+    margin: 0px 10px;
+    width: 1px;
+    height: 10px;
+    background-color: #CCCCCC;
+}
+
+#delivery-view:first-child {
+	margin-bottom: 5px;
+}
+
+#delivery-view {
+	display: block;
+}
+
+input[type="text"] {
+    height: 40px;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 14px;
+    padding: 9px 10px 9px;
+    color: #222;
+    text-align: left;
+}
+/* 배송지 버튼 */
+.btnGray30 {
+    color: #222222;
+    border: 1px solid #ccc;
+    min-width: 65px;
+    height: 30px;
+    border-radius: 3px;
+    padding: 0 10px;
+    font-size: 14px;
+    line-height: 14px;
+    background-color: white;
+    margin-bottom: 5px;
+}
+/* 배송 상품 */
+
+.myOrderWrapper .articleWrapper2 {
+    margin-top: 60px;
+    width: 860px;
+}
+
+.cart_top_info {
+    margin-bottom: 13px;
+    width: 860px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.myOrderWrapper .articleWrapper2 .amountNumber {
+    color: #222;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.myOrderWrapper .articleWrapper2 .number {
+    color: #ff6000;
+    font-size: 20px;
+}
+
+.order_check_cont {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.myOrderWrapper .articleWrapper2 .listTable {
+    width: 100%;
+}
+
+.myOrderWrapper .articleWrapper2 .listTable td {
+    padding: 20px;
+    color: #222;
+    font-size: 15px;
+}
+
+td img {
+	width: 100px;
+}
+
+/* 테이블 */
+table {
+    border-collapse: collapse;
+}
+
+.myOrderWrapper .price {
+    font-weight: 700;
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 21px;
+}
+
+/* 총 주문 */
+.list_total_price {
+    text-align: left;
+}
+
+.list_total_price h5 {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 5px;
+}
+
+.list_total_price p {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.list_total_price p strong {
+    font-size: 20px;
+    line-height: 21px;
+    font-weight: 700;
+    color: #FF6000;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.list_total_price p span {
+    line-height: 22px;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.myOrderWrapper .listTable td.totalAmountTd {
+    background-color: #FBF5EB;
+    text-align: right;
+    height: 80px;
+    vertical-align: middle;
+    padding-top: 30px;
+    padding-right: 20px !important;
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* 최종 결제 정보 */
+
+.buy_option_line {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.myOrderWrapper .articleWrapper3 {
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    width: 1200px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable2 {
+    vertical-align: top;
+    width: 100%
+}
+
+.myOrderWrapper .articleWrapper3 .formTable2 tr {
+    border-bottom: 1px solid #EDEDED;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable2 td {
+    padding: 20px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable2 td:last-child {
+    padding-right: 30px;
+}
+
+.myOrderWrapper .priceDetail {
+    font-size: 12px;
+    color: #999;
+    line-height: 18px;
+    margin-top: 4px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable3 {
+    width: 100%;
+    height: 76px;
+    background-color: #FBF5EB;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable3 td {
+    padding: 20px 30px 20px 20px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable3 .totalPrice, .myOrderWrapper .articleWrapper3 .formTable3 .totalWon {
+    color: #FF6000;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 16px;
+    padding-left: 2px;
+}
+
+.myOrderWrapper .articleWrapper3 .formTable3 .totalWon {
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 16px;
+    padding-left: 2px;
+}
+
+.myOrderWrapper .alignRight {
+    text-align: right;
+}
+
+.won {
+    font-weight: 500;
+    color: black;
+    font-size: 17px;
+    margin-right: 10px;
+    float: initial;
+    padding: 2px 0;
+}
+
+.agreement_box p {
+    margin-top: 30px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
+.col_gr {
+    color: #669933;
+    font-weight: 600;
+}
+a, a:hover {
+    text-decoration: none;
+    color: #222;
+    outline: none;
+}
+
+a.btn_back_gr .price, a.btn_back_gr .price b {
+    color: #BCD630;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#b_reveiver {
+	margin-bottom: 5px;
+}
+
+input[id="payBtn"] {
+	background: #346633;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    height: 60px;
+    border-radius: 5px;
+    width: 100%;
+}

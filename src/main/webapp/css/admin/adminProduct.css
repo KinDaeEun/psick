@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+/*all*/
+a {
+	text-decoration: none;
+}
+.wt_size {
+	width: 100px;
+}
+.flex {
+	display: flex;
+	justify-content: center;
+	
+}
+.mt-50 {
+	margin-top: 50px;
+}
+/*all*/
+
+/*버튼*/
+.sm_btn {
+    background: #669933;
+    border: 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    height: 39px;
+    padding: 0 31px;
+    width: 197px;
+    text-align: center;
+    border-radius: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+    width:15%;
+}
+.button1 {
+	display: inline-block;
+	min-width: 32px;
+	height: 32px;
+	border: 1px solid #fff;
+	border-radius: 32px;
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+}
+.button2 {
+	background: #669933;
+	border: 0;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 31px;
+	text-align: center;
+	border-radius: 5px;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all .35s;
+}
+
+.button2:hover {
+	background: #264427;
+}
+
+/*버튼*/
+
+/*서치*/
+.search_box02 {
+	position: relative;
+	display: inline-block;
+}
+
+.top_address_inp {
+	position: absolute;
+	top: 11px;
+	right: 18px;
+	background: #669933;
+	width: 18px;
+	height: 18px;
+	background: url(/psick/images/icon_img/iconSearch_shop.svg) center no-repeat;
+	background-size: 18px auto;
+	text-indent: -99999px;
+	overflow: hidden;
+	border: none;
+}
+
+/*서치*/
+
+select {
+	appearance: none;
+	background: #fff url(/psick/images/icon_img/ico_select_arrow03.svg) right center no-repeat;
+	border: 0;
+	box-sizing: border-box;
+	color: #222;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+	outline: none;
+	padding: 5px 27px 5px 10px;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	height: 40px;
+	min-width: 50px;
+	border-radius: 5px;
+	width: 196px;
+}
+
+input[type="text"] {
+	border-radius: 5px;
+	height: 40px;
+	padding: 5px 27px 5px 10px;
+	font-weight: 500;
+	border: 1px solid #ccc;
+}
+
+/*전체*/
+section {
+	display: flex;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.sect_wrap {
+	width: 1200px;
+	padding:0 20px ;
+}
+
+.searchForm {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*전체*/
+/*테이블*/
+table {
+	width: 1160px;
+}
+
+.list {
+	border-bottom: 1px solid #669933;
+	width: 1160px;
+}
+
+tbody {
+	border-bottom: 1px solid #669933;
+}
+th {
+	padding: 10px 5px;
+}
+td{
+	text-align: center;
+	padding: 10px 5px;
+}
+/*테이블*/
+/*제목*/
+caption {
+	padding: 50px 0 50px;
+	border-bottom: 1px solid #669933;
+	font-size: 32px;
+	font-weight: 600;
+}
+
+/*제목*/
+/*페이지*/
+.page_btn {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+/*페이지*/
