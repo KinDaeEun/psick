@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 @import url("/psick/css/admin/adminProduct.css");
-</style>
+</style>a
 <script type="text/javascript">
 	function chk() {
 		if (!frm.searchValue.value) {
