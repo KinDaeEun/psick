@@ -10,9 +10,6 @@
 @import url("/psick/css/admin/adminProduct.css");github에서 수정
 
 
-=======
-
->>>>>>> 4a7d35ead593005c909d30cf1c7b819a0cf0feaf
 </style>
 <script type="text/javascript">
 	function chk() {
