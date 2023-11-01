@@ -12,7 +12,9 @@
 </head>
 <body>
 
+
  	<!-- 배너 -->
+
 	<div id="banner" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#banner" data-bs-slide-to="0"
