@@ -24,6 +24,16 @@
 			return false;
 		} 
 	} 
+ 	
+	function loveChk() {
+		if (${empty id}) {
+			var con = confirm("로그인 후 이용해 주시기 바랍니다.");
+			location.href="/psick/views/member/loginForm.ys";
+			return false;
+		} 
+		else
+			location.href="/psick/views/display/love.sh?pno=${product.pno }";
+	} 
 	// 리뷰 삭제 confirm
 	function del(rno,pno) {
 		var con = confirm("상품평을 삭제하시겠습니까?");
@@ -128,7 +138,7 @@
 	 function count3(pno, id) {
 	      let data = "?pno="+pno + "&id="+id + "&buy_count="+frm.goodsQty.value + "&goods_price="+$("#goods_price").html();
 	      location.href="/psick/views/member/myCart.ys"+data;
-	      alert(data);
+	      
 	   }
 </script>
 
@@ -175,12 +185,19 @@
 							<!-- 상품컨텐츠 평점 -->
 
 							<div class="star_rating">
-								<c:forEach begin="1" end="${star_rate }">
-									<div class="star_rating_img">
-										<img src="/psick/images/icon_img/icon_star.svg" alt="평점">
-									</div>
-
+	
+								<c:forEach var="i" begin="1" end="${star_rate -(star_rate %1)}">
+								<div class="star_rating_img">
+									<img alt="" src="/psick/images/icon_img/icon_star.svg"
+										class="star_img">
+										</div>
 								</c:forEach>
+								<c:if test="${star_rate  != star_rate -(star_rate %1)}">
+								<div class="star_rating_img">
+									<img alt="" src="/psick/images/icon_img/icon_star_m.svg"
+										class="star_img">
+										</div>
+								</c:if>
 
 
 								<div class="product_rating">
@@ -239,9 +256,8 @@
 							</div>
 						</div>
 						<div class="bott_btnBox">
-							<a class="btn_like"
-								href="/psick/views/display/love.sh?pno=${product.pno }"><img
-								src="${img }"></a> <a href="#" class="btn_share">공유</a>
+							<a class="btn_like" onclick="loveChk()"><img src="${img }"></a>
+							<a href="#" class="btn_share">공유</a>
 							<div class="share_sns" style="display: none;"></div>
 							<!--장바구니 버튼 클릭시 아이디가 없으면  -->
 							<c:if test="${empty id}">

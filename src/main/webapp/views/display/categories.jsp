@@ -12,17 +12,20 @@
 <body>
 
 	<div class="inner">
+	<h3 >${kind }</h3>
 		<div class="prod_list_filter">
+			
 			<div class="lef_fil">
+			
 				<a
 					onclick="location.href='/psick/views/display/categories.en?order=avg(star) desc&kind=${kind}'"
 					id="recommend" class="on">추천순 </a> <a
 					onclick="location.href='/psick/views/display/categories.en?order=p_date desc&kind=${kind}'"
 					id="recommend" class="on">신상품순 </a> <a
-					onclick="location.href='/psick/views/display/categories.en?order=p_price desc&kind=${kind}'"
-					id="topPrice">최고가격순</a> <a
-					onclick="location.href='/psick/views/display/categories.en?order=p_price&kind=${kind}'"
-					id="lowPrice">최저가격순</a>
+					onclick="location.href='/psick/views/display/categories.en?order=(p_price - (discount/100 * p_price))&kind=${kind}'"
+					id="topPrice" class="on">최저가격순</a> <a
+					onclick="location.href='/psick/views/display/categories.en?order=(p_price - (discount/100 * p_price)) desc&kind=${kind}'"
+					id="lowPrice" class="on">최고가격순</a>
 			</div>
 		</div>
 		<div id="best">

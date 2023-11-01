@@ -103,9 +103,9 @@ $(function() {
 		<!-- 전체 -->
 		<section>
 			<c:if test="${empty list }">
-				<ul>
-					<li><span>장바구니 목록이 없습니다.</span></li>
-				</ul>
+				<div align="center">
+					<span>상품이 없습니다.</span>
+				</div>
 			</c:if>
 			<c:if test="${not empty list }">
 				<div class="cart-content-wrap">
@@ -165,7 +165,7 @@ $(function() {
 													data-goods-cd="WG026654" data-item-cd="026654"
 													data-dlv-store="9002">
 													<td><label class="check_st01 pl20 checked_${v.index}">
-															<input type="checkbox" name="pno" id="che"
+															<input type="checkbox" checked="checked" name="pno" id="che"
 															value="${product.pno}" onChange="cal(${v.index})">
 															<span class="checkmark"></span>
 													</label></td>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import dao.LoveDao;
 import dao.ProductDao;
 import dao.ReviewDao;
+import model.Cart;
 import model.Love;
 import model.Product;
 import model.Review;
@@ -22,6 +23,26 @@ public class LoveAction implements CommandProcess {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		int pno = Integer.parseInt(request.getParameter("pno"));
+		
+		// 상세페이지
+				ProductDao pd = ProductDao.getInstance();
+				Product product = pd.select(pno);
+				product.setPno(pno);
+				pno = product.getPno();
+
+				// 상품평
+				ReviewDao rd = ReviewDao.getInstance();
+				float star_rate = rd.selectStar(pno);
+				int star_count = rd.starCount(pno);
+				List<Review> reviewList = rd.selectReview(pno);
+
+				// 슬로건 상품리스트
+				List<Product> slogan_pd = pd.sloganPd(pno);
+
+				// 슬로건 별점
+				List<Float> slogan_star = rd.sloganStar(pno);
+
+
 
 		LoveDao ld = LoveDao.getInstance();
 		Love love = ld.select(pno, id);
@@ -31,7 +52,6 @@ public class LoveAction implements CommandProcess {
 			result = ld.insert(pno, id);
 			img = "/psick/images/icon_img/icon_like_on.svg";
 		} else {
-
 			if (love.getL_del().equals("y")) {
 				result = ld.update(pno, id, "n");
 				img = "/psick/images/icon_img/icon_like_on.svg";
@@ -40,22 +60,36 @@ public class LoveAction implements CommandProcess {
 				result = ld.update(pno, id, "y");
 			}
 		}
+		
+		String msg = "";
+		String nmsg = "";
+		Cart cart = null;
+		if (id != null) {
+			cart = pd.select1(pno, id);
+			if (cart == null) {
+				nmsg = "장바구니";
+			} else {
+				msg = "이미있는 상품 입니다";
+			}
+		}
 
-		ProductDao pd = ProductDao.getInstance();
-		Product product = pd.select(pno);
 
-		ReviewDao rd = ReviewDao.getInstance();
-		List<Review> rv = rd.selectReview(pno);
-		float star_rate = rd.selectStar(pno);
-		int star_count = rd.starCount(pno);
 
 		request.setAttribute("result", result);
 		request.setAttribute("img", img);
-		request.setAttribute("pno", pno);
-		request.setAttribute("product", product);
-		request.setAttribute("rv", rv);
 		request.setAttribute("star_rate", star_rate);
+		request.setAttribute("product", product);
 		request.setAttribute("star_count", star_count);
+		request.setAttribute("reviewList", reviewList);
+		request.setAttribute("slogan_pd", slogan_pd);
+		request.setAttribute("slogan_star", slogan_star);
+		request.setAttribute("pno", pno);
+		request.setAttribute("img", img);
+		request.setAttribute("id", id);
+		request.setAttribute("msg", msg);
+		request.setAttribute("nmsg", nmsg);
+		request.setAttribute("cart", cart);
+
 
 		return "product_content";
 	}

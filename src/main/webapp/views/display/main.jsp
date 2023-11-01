@@ -1,4 +1,5 @@
-	 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,9 +11,8 @@
 
 </head>
 <body>
-aaaaaa
-ㅠㅠㅠㅠ
-	<!-- 배너 -->
+
+ 	<!-- 배너 -->
 	<div id="banner" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
 			<button type="button" data-bs-target="#banner" data-bs-slide-to="0"
@@ -172,4 +172,4 @@ aaaaaa
 		</div>
 	</section>
 </body>
-</html> 
+</html>

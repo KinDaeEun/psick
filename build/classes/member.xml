@@ -33,6 +33,20 @@
 	<select id="getTotal" resultType="integer">
 		select count(*) from member
 	</select>
+	
+	<select id="selectAll" resultType="member">
+		select * from member
+	</select>
+	
+	<select resultType="member" parameterType="map" id="adminSearch">
+	select * from member where ${searchKey} like'%${searchValue}%'
+	 </select>
+
+	<update  id="changeDel" parameterType="map">
+		update member set m_del=#{m_del} where id=#{id} 
+	</update>
+
+	<update parameterType="member" id="adminUpMem">update member set password=#{password}, name=#{name},tel=#{tel}, gender=#{gender},addr=#{addr}, addr_detail=#{addr_detail}where id=#{id} </update>
 
 	
 	

@@ -333,29 +333,6 @@ insert into eventlist values(1,3,'n');
  insert into product values(product_seq.nextval,'무항생제 국내산 생물새우(1kg)',35500,'한국산','shrimp.jpg','어린 새우가 큼직한 크기의 어른새우가 되는 8~10월이 새우의 제철입니다. 이 때 만나는 생물새우는 육질이 탱탱하고 씹는 맛이 풍부하죠. 목포항에서 2시간 배를 타고 들어가는 하의도(島)에서 양식해 첫 출하되는 생물새우를 준비했어요.'
  ,10,'수산','n',sysdate,100);
 
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- select *,b_count from product where pno in (select pno from buylist where bno in (select bno from buy where id='1'));
- select pno,b_count from buylist where bno in (select bno from buy where id='1');
- 
- 
- 
- select * from buylist;
- select * from product;
- 
- 
- 
  
  
  
