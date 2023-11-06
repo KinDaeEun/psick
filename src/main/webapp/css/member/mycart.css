@@ -595,7 +595,7 @@ td.order_prod_con04 {
 	line-height: 20px;
 }
 
-a.btn_back_gr {
+.btn_order input[type="submit"] {
 	background: #346633;
 	color: #fff;
 	display: flex;

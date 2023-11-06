@@ -15,85 +15,85 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-	  calculateTotalPrice();
-	  $('input[type="checkbox"][name="pno"]').change(function () {
-	    calculateTotalPrice();
-	  });
+	  updateTotalPrice();
+
+	  // 상품 수량 변경 이벤트
 	  $('.Qty').change(function () {
-	    updatePrice($(this));
+	    updateTotalPrice();
 	  });
-	  function calculateTotalPrice() {
+
+	  // 'btn_plus' 클릭 이벤트
+	  $('.btn_plus').click(function () {
+	    updateQuantity(this, 1);
+	  });
+
+	  // 'btn_minus' 클릭 이벤트
+	  $('.btn_minus').click(function () {
+	    updateQuantity(this, -1);
+	  });
+
+	  // 체크박스 변경 이벤트
+	  $('input[type="checkbox"][name="pno"]').change(function () {
+	    updateTotalPrice();
+	  });
+
+	  function updateTotalPrice() {
 	    var totalPrice = 0;
-	    var totalAmt = 0; 
-	    // 배송비 미포함 총 가격	    
+	    var totalAmt = 0;
 	    var totalAmts = 0;
-	    // 배송비 포함 총 가격
+
 	    $('input[type="checkbox"][name="pno"]').each(function () {
 	      var priceElement = $(this).closest('tr').find('.priceNum');
-	      var quantity = parseInt($(this).closest('tr').find('.Qty').val());
+	      var quantityInput = $(this).closest('tr').find('.Qty');
+	      var quantity = parseInt(quantityInput.val());
 	      var unitPrice = parseFloat(priceElement.val());
-	      var totalAmount = quantity * unitPrice;	    
+	      var totalAmount = quantity * unitPrice;
+
 	      if ($(this).is(':checked')) {
-	    	  totalAmt += totalAmount;
-	        totalAmts += totalAmount;
+	        totalAmt += totalAmount;
+	      }
+	      totalAmts += totalAmount;
+
+	      if (quantity < 1) {
+	        alert("최소 한 개 이상을 구매해야 합니다.");
+	        quantityInput.val(1);
+	        quantity = 1; // 수량을 1개로 설정
+	        totalAmount = unitPrice;
 	      }
 	    });
-	    var totalAmt = totalAmt;
-	    var totalAmts = totalAmts + 3000;
-	    $('#subTotPrc').text(totalAmt.toLocaleString());
-	    $('#goods_price').val(totalAmt);
-	    $('#subTotPrc1').text(totalAmt.toLocaleString());
-	    $('#subTotPrc4').text(totalAmt.toLocaleString());
-	    $('#subTotPrc3').text(totalAmts.toLocaleString());
+
+	    var deliveryFee = 3000; // 배송비
+	    var goodsPrice = totalAmt; // 상품금액
+
+	    $('#subTotPrc').text(goodsPrice.toLocaleString());
+	    $('#goods_price').val(goodsPrice);
+	    $('#subTotPrc1').text(goodsPrice.toLocaleString());
+	    $('#subTotPrc4').text(goodsPrice.toLocaleString());
+
+	    var totalPayment = goodsPrice + deliveryFee;
+	    $('#subTotPrc3').text(totalPayment.toLocaleString());
 	  }
-	  function updatePrice(input) {
-	    calculateTotalPrice();
+
+	  function updateQuantity(button, change) {
+	    let quantityInput = $(button).siblings('.Qty');
+	    let currentQuantity = parseInt(quantityInput.val());
+	    let newQuantity = currentQuantity + change;
+
+	    let priceElement = $(button).closest('tr').find('.priceNum');
+	    let unitPrice = parseFloat(priceElement.val());
+
+	    if (newQuantity < 1) {
+	      alert("최소 한 개 이상을 구매해야 합니다.");
+	      newQuantity = 1;
+	      goodsPrice = totalAmt
+	    }
+
+	    quantityInput.val(newQuantity);
+	    let totalAmount = newQuantity * unitPrice;
+	    $(button).closest('tr').find('.car_won').text(totalAmount.toLocaleString());
+	    updateTotalPrice();
 	  }
 	});
-
-
-
-
-$(function() {
-
-  $('.btn_plus').click(function() {
-    updateQuantity(this, 1);
-  });
-
-
-  $('.btn_minus').click(function() {
-    updateQuantity(this, -1);
-  });
-
-  function updateQuantity(button, change) {
-    let quantityInput = $(button).siblings('.Qty');
-
-
-    let currentQuantity = parseInt(quantityInput.val());
-    let newQuantity = currentQuantity + change;
-
-    let priceElement = $(button).closest('tr').find('.priceNum');
-
-    let unitPrice = parseFloat(priceElement.val());
-    let totalAmount = newQuantity * unitPrice;
-
-    newQuantity = Math.max(1, newQuantity);
-    quantityInput.val(newQuantity);
-
- 
-    if (newQuantity === 0) {
-      alert("1개 이상 구매해야 합니다.");
-      newQuantity = 1; // 최소값 1로 설정
-      quantityInput.val(newQuantity); // 수량 업데이트
-      totalAmount = unitPrice; // 총 가격 업데이트
-    }
-
-
-    $(button).closest('tr').find('.car_won').text(totalAmount);
-  }
-});
-
-
 </script>
 
 <%@ include file="/views/sessionChk.jsp"%>
@@ -115,7 +115,7 @@ $(function() {
 							<div class="cart_top_info">
 								<div class="selectAllWrapper flexBottom">
 									<div class="bott_check_rit">
-<!-- 										<label class="check_st01">
+										<!-- 										<label class="check_st01">
 									 <input type="checkbox"	name="che" onclick='checkmarkAll(this)' id="itemAllCheck">전체선택
 											<span class="checkmark all"></span>
 										</label> -->
@@ -131,7 +131,7 @@ $(function() {
 						<div class="cart_top_info">
 							<div class="caption flexMiddleEdge">
 								<div class="flexMiddle">
-									 <span>장바구니 상품 </span>&nbsp;<span id="2121" class="number">${list.size() }${product.p_price }</span>개
+									<span>장바구니 상품 </span>&nbsp;<span id="2121" class="number">${list.size() }${product.p_price }</span>개
 									&nbsp; <span class="iconQuestion"> </span>
 								</div>
 							</div>
@@ -165,9 +165,10 @@ $(function() {
 													data-goods-cd="WG026654" data-item-cd="026654"
 													data-dlv-store="9002">
 													<td><label class="check_st01 pl20 checked_${v.index}">
-															<input type="checkbox" checked="checked" name="pno" id="che"
-															value="${product.pno}" onChange="cal(${v.index})">
-															<span class="checkmark"></span>
+															<input type="checkbox" checked="checked" name="pno"
+															id="che" value="${product.pno}"
+															onChange="cal(${v.index})"> <span
+															class="checkmark"></span>
 													</label></td>
 													<td class="order_prod_con01"><a
 														href="javascript:cl.page.goToGoodsDetail('WG026654')">
@@ -259,12 +260,6 @@ $(function() {
 														<strong id="subTotPrc4"></strong> <span>원</span>
 													</dd>
 												</dl>
-												<dl>
-													<dt>총 할인금액</dt>
-													<dd>
-														<strong>- 0</strong> <span>원</span>
-													</dd>
-												</dl>
 												<div class="dc-area">
 													<dl id="dlDcPrcTotal" style="display: none;">
 														<dt>상품할인</dt>
@@ -287,7 +282,9 @@ $(function() {
 														<strong id="subTotPrc3"></strong><span>원</span>
 													</dd>
 												</dl>
-												<input type="submit" value="주문하기" id="btn_back_gr">
+												<input type="submit" value="주문하기" id="btn_back_gr"
+													class="btn_order"
+													style="background: #346633; color: #fff; display: flex; align-items: center; justify-content: center; column-gap: 4px; font-size: 16px; font-weight: 600; height: 54px; border-radius: 5px; width: 100%;">
 
 											</div>
 										</div>
